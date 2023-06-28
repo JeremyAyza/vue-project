@@ -20,36 +20,52 @@ import { ref, computed } from 'vue';
 </script>
 
 <template>
-  <div>
-    <h4 :style="`color:${stateColor}`" >
-      Cantidad de clicks: {{ veces }}
-    </h4>
-  </div>
-  <br>
-  <div>
+  
+  <div class="container">
+    <div>
+      <h2 :style="`color:${stateColor}`" >
+        Contador: {{ veces }}
+      </h2>
+    </div>
     <button @click="actualizarContador(+1)">+1</button>
     <button @click="actualizarContador(-1)">-1</button>
     <button @click="actualizarContador(0)">Resetear</button>
     <button @click="add" :disabled="incluido">Add</button>
+    
+  </div>
+  <div class="container">
+    <h3>Lista de números favoritos:</h3>
     <ul>
       <li v-for="(number,index) in favoritos" :key="index">
         {{ number }}
       </li>
     </ul>
-
-
   </div>
 </template>
 
 
 <style >
+  h4
   h1{
     color: red;
   }
-  .card{
-    background-color: rgb(222, 222, 222);
-    padding: 10px;
+  button{
+    padding: 5px 10px;
+    
+    border: 1px solid rgb(255, 255, 255);
+    background-color: rgb(33, 184, 33);
     border-radius: 5px;
     margin: 10px 0px;
+    max-width: 200px;
   }
+  .container{
+    display: flex;
+    flex-direction: column;
+    border:  1px solid silver;
+    padding: 15px ;
+    border-radius: 5px;
+    margin: 5px;
+    
+  }
+  
 </style>
